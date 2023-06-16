@@ -13,6 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yjs": "^13.6.2"
+    "yjs": "^13.6.4"
   }
 }
