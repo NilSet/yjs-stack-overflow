@@ -1,5 +1,5 @@
 const Y = require('yjs');
-const data = require('./anon_slow.json');
+const data = require('./anon_slow_2.json');
 
 console.log('number of updates', data.length);
 
@@ -8,8 +8,9 @@ let applied = 0;
 const start = Date.now();
 for (const update of data) {
   try {
+    const startSingle = Date.now();
     Y.applyUpdate(doc, Buffer.from(update, 'base64'));
-    console.log('applied', ++applied);
+    console.log('applied', ++applied, 'in', Date.now() - startSingle, 'ms');
   } catch (e) {
     console.log('threw, current number of transactions:', doc._transactionCleanups.length);
     throw e;
